@@ -68,7 +68,7 @@ FF.GameState = function(options){
 	 * @param {Object|Drawable} child
 	 */
 	this.add = function(child){
-		if(!child.setup || !child.update || !child.draw) if(that.currentGameState.update === undefined) throw new Error("[FF.GameState.add] Your item have to contain .setup(), .update() & .draw() functions");
+		if(!child.setup || !child.update || !child.draw) throw new Error("[FF.GameState.add] Your item have to contain .setup(), .update() & .draw() functions");
 
 		this.children.push(child);
 	};
