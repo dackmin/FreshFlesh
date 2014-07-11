@@ -69,7 +69,7 @@ FF.AssetLoader.prototype.load = function(){
 
 		loader = new loader(filename);
 		loader.addEventListener("loaded", function(){
-			that.loadedAsset();
+			that.loadedAsset(filename);
 		});
 		loader.load();
 	}
@@ -80,11 +80,11 @@ FF.AssetLoader.prototype.load = function(){
  * Called when an asset has just ended loading
  * @method loadedAsset
  */
-FF.AssetLoader.prototype.loadedAsset = function(){
+FF.AssetLoader.prototype.loadedAsset = function(filename){
 	var that = this;
 	this.loadedCount++;
 
-	this.dispatchEvent({ type : "progress", loaded : that.loadedCount, total : that.assetsURL.length });
+	this.dispatchEvent({ type : "progress", loaded : that.loadedCount, total : that.assetsURL.length, currentFile : filename });
 
 	if(this.loadedCount == this.assetsURL.length){
 		this.dispatchEvent({ type : "loaded" });
