@@ -1,7 +1,7 @@
 FreshFlesh
 ==========
 
-[![release](http://img.shields.io/badge/current%20release-v0.1__alpha-green.svg?style=flat)](https://github.com/dackmin/FreshFlesh/releases/tag/v0.1_alpha)
+[![release](http://img.shields.io/badge/current%20release-Port%20Royal%20(v0.1__alpha)-green.svg?style=flat)](https://github.com/dackmin/FreshFlesh/releases/tag/v0.1_alpha)
 [![download](http://img.shields.io/badge/download%20latest%20minified%20js-62.7KB-blue.svg?style=flat)](https://github.com/dackmin/FreshFlesh/releases/download/v0.1_alpha/freshflesh-v0.1_alpha.min.js)
 
 
