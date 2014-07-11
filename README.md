@@ -16,7 +16,7 @@ This engine is subject to the terms and conditions defined in the 'LICENSE' file
 If you don't want to download the compressed version of Fresh Flesh everytime you create a game, simply use the main file in the master branch of this git, like the following :
 
 ```
-<script src='https://raw.githubusercontent.com/dackmin/FreshFlesh/master/bin/freshflesh.js'></script>
+<script src='https://raw.githubusercontent.com/dackmin/FreshFlesh/master/bin/freshflesh-latest.js'></script>
 ```
 
 Unless GitHub decides to move raw files, it will never change.
@@ -29,15 +29,15 @@ You first create a GameState :
 ```
 function MainGameState(){
 	this.setup = function(){
-	
+
 	};
-	
+
 	this.update = function(){
-	
+
 	};
-	
+
 	this.draw = function(){
-	
+
 	};
 }
 ```
