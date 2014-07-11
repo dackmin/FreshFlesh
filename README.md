@@ -13,13 +13,13 @@ This engine is subject to the terms and conditions defined in the 'LICENSE' file
 
 ## Installation
 
-If you don't want to download the compressed version of Fresh Flesh everytime you create a game, simply use the main file in the master branch of this git, like the following :
+If you don't want to download the compressed version of Fresh Flesh everytime you create a game, simply use the latest release in the master branch of this git, like the following :
 
 ```
-<script src='https://raw.githubusercontent.com/dackmin/FreshFlesh/master/bin/freshflesh-latest.js'></script>
+<script src='https://rawgit.com/dackmin/FreshFlesh/master/bin/freshflesh-latest.js'></script>
 ```
 
-Unless GitHub decides to move raw files, it will never change.
+Unless Rawgit suddenly closes, it will never change.
 
 ## Usage
 
