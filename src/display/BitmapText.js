@@ -134,18 +134,18 @@ FF.BitmapText.prototype.draw = function(){
 
 	for(var line in this.chars){
 		for(var i = 0; i < this.chars[line].length; i++){
-			var char = this.chars[line][i];
+			var charac = this.chars[line][i];
 
 			FF.Render.drawSubImage(
 				this.data.texture,
-				char.textureRect.x,
-				char.textureRect.y,
-				char.textureRect.width,
-				char.textureRect.height,
-				this.x + char.position.x,
-				this.y + char.position.y,
-				char.textureRect.width * scale,
-				char.textureRect.height * scale
+				charac.textureRect.x,
+				charac.textureRect.y,
+				charac.textureRect.width,
+				charac.textureRect.height,
+				this.x + charac.position.x,
+				this.y + charac.position.y,
+				charac.textureRect.width * scale,
+				charac.textureRect.height * scale
 			);
 		}
 	}
