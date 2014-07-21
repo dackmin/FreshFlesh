@@ -1,6 +1,6 @@
 MERGE = ./MERGE
-COMPILED = ./bin/freshflesh-v0.1_alpha.js
-MINIFIED = ./bin/freshflesh-v0.1_alpha.min.js
+COMPILED = ./bin/freshflesh-v0.2_alpha.js
+MINIFIED = ./bin/freshflesh-v0.2_alpha.min.js
 
 all: compile
 
