@@ -45,24 +45,24 @@ FF.Animation.prototype.update = function(){
 FF.Animation.prototype.animate = function(tickEvent){
 	var percent = (this.timer.time / this.timer.timeout);
 
-	if(this.animateLeft) this.node.x-= this.animateLeft * percent;
-	if(this.animateRight) this.node.x+= this.animateRight * percent;
-	if(this.animateTop) this.node.y-= this.animateTop * percent;
-	if(this.animateBottom) this.node.y+= this.animateBottom * percent;
+	if(this.animateLeft !== null) this.node.x-= this.animateLeft * percent;
+	if(this.animateRight !== null) this.node.x+= this.animateRight * percent;
+	if(this.animateTop !== null) this.node.y-= this.animateTop * percent;
+	if(this.animateBottom !== null) this.node.y+= this.animateBottom * percent;
 
-	if(this.animateWidth){
+	if(this.animateWidth !== null){
 		var diff = this.animateWidth - this.node.width;
 		this.node.width+= diff * percent;
 	}
-	if(this.animateHeight){
+	if(this.animateHeight !== null){
 		var diff = this.animateHeight - this.node.height;
 		this.node.height+= diff * percent;
 	}
-	if(this.animateScale){
+	if(this.animateScale !== null){
 		var diff = this.animateScale - this.node.scale;
 		this.node.scale+= diff * percent;
 	}
-	if(this.animateOpacity){
+	if(this.animateOpacity !== null){
 		var diff = this.animateOpacity - this.node.alpha;
 		this.node.alpha+= diff * percent;
 	}
