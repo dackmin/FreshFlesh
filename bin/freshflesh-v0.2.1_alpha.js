@@ -5,7 +5,7 @@
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-/* Last merge : Lun 21 jul 2014 12:15:19 CEST  */
+/* Last merge : Lun 21 jul 2014 12:17:54 CEST  */
 
 /* Merging order :
 
@@ -2398,19 +2398,19 @@ FF.Animation.prototype.animate = function(tickEvent){
 	if(this.animateBottom) this.node.y+= this.animateBottom * percent;
 
 	if(this.animateWidth){
-		var diff = this.node.width - this.animateWidth;
+		var diff = this.animateWidth - this.node.width;
 		this.node.width+= diff * percent;
 	}
 	if(this.animateHeight){
-		var diff = this.node.height - this.animateHeight;
+		var diff = this.animateHeight - this.node.height;
 		this.node.height+= diff * percent;
 	}
 	if(this.animateScale){
-		var diff = this.node.scale - this.animateScale;
+		var diff = this.animateScale - this.node.scale;
 		this.node.scale+= diff * percent;
 	}
 	if(this.animateOpacity){
-		var diff = this.node.alpha - this.animateOpacity;
+		var diff = this.animateOpacity - this.node.alpha;
 		this.node.alpha+= diff * percent;
 	}
 };
