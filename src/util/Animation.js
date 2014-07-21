@@ -16,7 +16,7 @@ FF.Animation = function(item, duration, options){
 
 	this.timer = new FF.Timer({ timeout : duration, interval : options.step || 2, autostart : options.autostart  });
 	this.timer.addEventListener("start", function(){ that.dispatchEvent({ type : "start" }); });
-	this.timer.addEventListener("tick", function(){ that.animate(); that.dispatchEvent({ type : "step" }); });
+	this.timer.addEventListener("tick", function(e){ that.animate(e); that.dispatchEvent({ type : "step" }); });
 	this.timer.addEventListener("timeout", function(){ that.dispatchEvent({ type : "end" }); });
 
 	this.animateLeft = options.left || null;
@@ -42,13 +42,15 @@ FF.Animation.prototype.update = function(){
 };
 
 
-FF.Animation.prototype.animate = function(){
-	if(this.animateLeft) this.node.x-= this.animateLeft;
-	if(this.animateRight) this.node.x+= this.animateRight;
-	if(this.animateTop) this.node.y-= this.animateTop;
-	if(this.animateBottom) this.node.y+= this.animateBottom;
-	if(this.animateWidth) this.node.width+= this.animateWidth;
-	if(this.animateHeight) this.node.height+= this.animateHeight;
-	if(this.animateScale && this.node.scale > 0) this.node.scale+= this.animateScale;
-	if(this.animateOpacity && this.node.opacity > 0) this.node.opacity+= this.animateOpacity;
+FF.Animation.prototype.animate = function(tickEvent){
+	var percent = (tickEvent.remaining / this.timer.timeout) * 100;
+
+	if(this.animateLeft) this.node.x-= this.animateLeft * percent;
+	if(this.animateRight) this.node.x+= this.animateRight * percent;
+	if(this.animateTop) this.node.y-= this.animateTop * percent;
+	if(this.animateBottom) this.node.y+= this.animateBottom * percent;
+	if(this.animateWidth) this.node.width+= this.animateWidth * percent;
+	if(this.animateHeight) this.node.height+= this.animateHeight * percent;
+	if(this.animateScale && this.node.scale > 0) this.node.scale+= this.animateScale * percent;
+	if(this.animateOpacity && this.node.opacity > 0) this.node.opacity+= this.animateOpacity * percent;
 };
