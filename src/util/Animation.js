@@ -51,8 +51,8 @@ FF.Animation.prototype.animate = function(tickEvent){
 	if(this.animateBottom) this.node.y+= this.animateBottom * percent;
 	if(this.animateWidth) this.node.width+= this.animateWidth * percent;
 	if(this.animateHeight) this.node.height+= this.animateHeight * percent;
-	if(this.animateScale && this.node.scale > 0) this.node.scale+= this.animateScale * percent;
-	if(this.animateOpacity && this.node.alpha > 0) this.node.alpha+= this.animateOpacity * percent;
+	if(this.animateScale) this.node.scale+= this.animateScale * percent;
+	if(this.animateOpacity) this.node.alpha+= this.animateOpacity * percent;
 };
 
 FF.Animation.prototype.start = function(){
