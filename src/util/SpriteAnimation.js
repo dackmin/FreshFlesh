@@ -1,10 +1,10 @@
 /**
  * Allows you to animate your sprite frames
- * @class Animation
+ * @class SpriteAnimation
  * @example
  * TODO
  */
-FF.Animation = function(options){
+FF.SpriteAnimation = function(options){
 	FF.EventManager.call(this);
 
 	this.frames = options.frames || sprite.positions;
@@ -33,11 +33,11 @@ FF.Animation = function(options){
 	}
 };
 
-FF.Animation.prototype.subset = function(subset) {
+FF.SpriteAnimation.prototype.subset = function(subset) {
   return this.subsets[subset];
 };
 
-FF.Animation.prototype.update = function() {
+FF.SpriteAnimation.prototype.update = function() {
 	this.current_tick = (new Date()).getTime();
   	this.sum_tick += (this.current_tick - this.last_tick);
   	this.last_tick = this.current_tick;
@@ -66,7 +66,7 @@ FF.Animation.prototype.update = function() {
   	}
 };
 
-FF.Animation.prototype.slice = function(start, stop) {
+FF.SpriteAnimation.prototype.slice = function(start, stop) {
   	var o = {};
   	o.frame_duration = this.frame_duration;
   	o.loop = this.loop;
@@ -74,10 +74,10 @@ FF.Animation.prototype.slice = function(start, stop) {
   	o.on_end = this.on_end;
   	o.frame_direction = this.frame_direction;
   	o.frames = this.frames.slice().slice(start, stop);
-  	return new FF.Animation(o);
+  	return new FF.SpriteAnimation(o);
 };
 
-FF.Animation.prototype.merge = function(_frames){
+FF.SpriteAnimation.prototype.merge = function(_frames){
 	var o = {};
   	o.frame_duration = this.frame_duration;
   	o.loop = this.loop;
@@ -88,22 +88,22 @@ FF.Animation.prototype.merge = function(_frames){
   	o.frames = [];
 	for(var i in _frames) o.frames.push(this.frames[_frames[i]]);
 
-  	return new FF.Animation(o);
+  	return new FF.SpriteAnimation(o);
 };
 
-FF.Animation.prototype.next = function(){
+FF.SpriteAnimation.prototype.next = function(){
   this.update();
   return this.frames[this.index];
 };
 
-FF.Animation.prototype.atLastFrame = function(){
+FF.SpriteAnimation.prototype.atLastFrame = function(){
 	return (this.index == this.frames.length-1);
 };
 
-FF.Animation.prototype.atFirstFrame = function(){
+FF.SpriteAnimation.prototype.atFirstFrame = function(){
 	return (this.index == 0);
 };
 
-FF.Animation.prototype.currentFrame = function() {
+FF.SpriteAnimation.prototype.currentFrame = function() {
   return this.frames[this.index];
 };
