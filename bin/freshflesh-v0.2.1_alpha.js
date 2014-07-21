@@ -5,7 +5,7 @@
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-/* Last merge : Lun 21 jul 2014 11:59:37 CEST  */
+/* Last merge : Lun 21 jul 2014 12:15:19 CEST  */
 
 /* Merging order :
 
@@ -2392,16 +2392,27 @@ FF.Animation.prototype.update = function(){
 FF.Animation.prototype.animate = function(tickEvent){
 	var percent = (this.timer.time / this.timer.timeout);
 
-	console.log(percent);
-
 	if(this.animateLeft) this.node.x-= this.animateLeft * percent;
 	if(this.animateRight) this.node.x+= this.animateRight * percent;
 	if(this.animateTop) this.node.y-= this.animateTop * percent;
 	if(this.animateBottom) this.node.y+= this.animateBottom * percent;
-	if(this.animateWidth) this.node.width+= this.animateWidth * percent;
-	if(this.animateHeight) this.node.height+= this.animateHeight * percent;
-	if(this.animateScale) this.node.scale+= this.animateScale * percent;
-	if(this.animateOpacity) this.node.alpha+= this.animateOpacity * percent;
+
+	if(this.animateWidth){
+		var diff = this.node.width - this.animateWidth;
+		this.node.width+= diff * percent;
+	}
+	if(this.animateHeight){
+		var diff = this.node.height - this.animateHeight;
+		this.node.height+= diff * percent;
+	}
+	if(this.animateScale){
+		var diff = this.node.scale - this.animateScale;
+		this.node.scale+= diff * percent;
+	}
+	if(this.animateOpacity){
+		var diff = this.node.alpha - this.animateOpacity;
+		this.node.alpha+= diff * percent;
+	}
 };
 
 FF.Animation.prototype.start = function(){
