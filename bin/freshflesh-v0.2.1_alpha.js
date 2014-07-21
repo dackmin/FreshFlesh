@@ -5,7 +5,7 @@
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-/* Last merge : Lun 21 jul 2014 11:32:55 CEST  */
+/* Last merge : Lun 21 jul 2014 11:41:01 CEST  */
 
 /* Merging order :
 
@@ -2400,6 +2400,10 @@ FF.Animation.prototype.animate = function(tickEvent){
 	if(this.animateHeight) this.node.height+= this.animateHeight * percent;
 	if(this.animateScale && this.node.scale > 0) this.node.scale+= this.animateScale * percent;
 	if(this.animateOpacity && this.node.opacity > 0) this.node.opacity+= this.animateOpacity * percent;
+};
+
+FF.Animation.prototype.start = function(){
+	this.timer.restart();
 };
 
 

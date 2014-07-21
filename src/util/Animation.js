@@ -54,3 +54,7 @@ FF.Animation.prototype.animate = function(tickEvent){
 	if(this.animateScale && this.node.scale > 0) this.node.scale+= this.animateScale * percent;
 	if(this.animateOpacity && this.node.opacity > 0) this.node.opacity+= this.animateOpacity * percent;
 };
+
+FF.Animation.prototype.start = function(){
+	this.timer.restart();
+};
