@@ -5,7 +5,7 @@
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-/* Last merge : Lun 21 jul 2014 11:55:45 CEST  */
+/* Last merge : Lun 21 jul 2014 11:56:49 CEST  */
 
 /* Merging order :
 
@@ -2390,7 +2390,7 @@ FF.Animation.prototype.update = function(){
 
 
 FF.Animation.prototype.animate = function(tickEvent){
-	var percent = (tickEvent.remaining / this.timer.timeout);
+	var percent = (this.timer.time / this.timer.timeout);
 
 	console.log(this.animateLeft);
 	console.log(this.animateOpacity);
