@@ -14,7 +14,7 @@ FF.Animation = function(item, duration, options){
 
 	this.node = item;
 
-	this.timer = new FF.Timer({ timeout : duration, interval : options.step || 2, autostart : options.autostart  });
+	this.timer = new FF.Timer({ timeout : duration, interval : options.step || 100, autostart : options.autostart || false  });
 	this.timer.addEventListener("start", function(){ that.dispatchEvent({ type : "start" }); });
 	this.timer.addEventListener("tick", function(e){ that.animate(e); that.dispatchEvent({ type : "step" }); });
 	this.timer.addEventListener("timeout", function(){ that.dispatchEvent({ type : "end" }); });
