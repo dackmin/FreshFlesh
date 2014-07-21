@@ -43,7 +43,7 @@ FF.Animation.prototype.update = function(){
 
 
 FF.Animation.prototype.animate = function(tickEvent){
-	var percent = (tickEvent.remaining / this.timer.timeout) * 100;
+	var percent = (tickEvent.remaining / this.timer.timeout);
 
 	console.log(this.animateLeft);
 	console.log(this.animateOpacity);
