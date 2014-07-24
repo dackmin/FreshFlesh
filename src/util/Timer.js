@@ -3,6 +3,7 @@
  */
 FF.Timer = function(options){
 	FF.EventManager.call(this);
+	var that = this;
 
 	this.time = 0;
 
@@ -16,7 +17,7 @@ FF.Timer = function(options){
 
 	this.active = options.autostart || false;
 
-	if(this.autostart) this.dispatchEvent({ type : "start" });
+	if(this.autostart) this.dispatchEvent({ type : "start", timeout : that.timeout });
 };
 
 FF.Timer.prototype.update = function(){
@@ -31,7 +32,7 @@ FF.Timer.prototype.update = function(){
 
 	if(new Date() - this.lastTick >= this.interval){
 		this.time+= this.interval;
-		this.dispatchEvent({ type : "tick", remaining : that.timeout - that.time });
+		this.dispatchEvent({ type : "tick", remaining : that.timeout - that.time, completion : parseFloat(that.time / that.timeout) });
 		this.lastTick = new Date();
 	}
 };
@@ -46,9 +47,11 @@ FF.Timer.prototype.reset = function(){
 };
 
 FF.Timer.prototype.restart = function(){
+	var that = this;
+
 	this.time = 0;
 	this.lastTick = new Date();
-	this.dispatchEvent({ type : "start" });
+	this.dispatchEvent({ type : "start", timeout : that.timeout });
 	this.active = true;
 };
 
