@@ -93,6 +93,9 @@ FF.Game = function(gamestate, options){
 		if(that.currentGameState.update === undefined) throw new Error("[FF.Game.requestAnimationFrame] Your GameState have to contain an update() function (even if you let it empty)");
 		if(that.currentGameState.draw === undefined) throw new Error("[FF.Game.requestAnimationFrame] Your GameState have to contain an draw() function (even if you let it empty)");
 
+		//From v0.3_alpha - Added support for Gamepad API
+		FF.InputManager.getGamepads();
+
 		if(that.currentGameState.isStarted){
 			that.currentGameState.update();
 
