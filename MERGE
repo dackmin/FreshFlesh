@@ -25,6 +25,7 @@ src/audio/Music.js
 src/audio/Sound.js
 
 # Util
+src/util/Util.js
 src/util/Animation.js
 src/util/EventManager.js
 src/util/Game.js
@@ -32,6 +33,5 @@ src/util/GameState.js
 src/util/InputManager.js
 src/util/Shooter.js
 src/util/Timer.js
-src/util/Util.js
 src/util/Viewport.js
 src/util/WebSocketServer.js
