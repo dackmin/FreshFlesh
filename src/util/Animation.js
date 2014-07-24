@@ -19,21 +19,14 @@ FF.Animation = function(item, duration, options){
 	this.timer.addEventListener("tick", function(e){ that.animate(e); that.dispatchEvent({ type : "step" }); });
 	this.timer.addEventListener("timeout", function(){ that.dispatchEvent({ type : "end" }); });
 
-	this.animateLeft = options.left || null;
+	this.options = options || {};
 
-	this.animateRight = options.right || null;
-
-	this.animateTop = options.top || null;
-
-	this.animateBottom = options.bottom || null;
-
-	this.animateWidth = options.width || null;
-
-	this.animateHeight = options.height || null;
-
-	this.animateScale = options.scale || null;
-
-	this.animateOpacity = options.opacity || null;
+	this.originalX = this.node.rect().x;
+	this.originalY = this.node.rect().y;
+	this.originalWidth = this.node.rect().width;
+	this.originalHeight = this.node.rect().height;
+	this.originalScale = this.node.scale;
+	this.originalAlpla = this.node.alpha;
 };
 
 
@@ -45,27 +38,15 @@ FF.Animation.prototype.update = function(){
 FF.Animation.prototype.animate = function(tickEvent){
 	var percent = (this.timer.time / this.timer.timeout);
 
-	if(this.animateLeft !== null) this.node.x-= this.animateLeft * percent;
-	if(this.animateRight !== null) this.node.x+= this.animateRight * percent;
-	if(this.animateTop !== null) this.node.y-= this.animateTop * percent;
-	if(this.animateBottom !== null) this.node.y+= this.animateBottom * percent;
+	if(this.options.left) this.node.x = this.originalX - (this.options.left * percent);
+	if(this.options.right) this.node.x = this.originalX + (this.options.right * percent);
+	if(this.options.top) this.node.y = this.originalY - (this.options.top * percent);
+	if(this.options.bottom) this.node.y = this.originalY + (this.options.bottom * percent);
 
-	if(this.animateWidth !== null){
-		var diff = this.animateWidth - this.node.width;
-		this.node.width+= diff * percent;
-	}
-	if(this.animateHeight !== null){
-		var diff = this.animateHeight - this.node.height;
-		this.node.height+= diff * percent;
-	}
-	if(this.animateScale !== null){
-		var diff = this.animateScale - this.node.scale;
-		this.node.scale+= diff * percent;
-	}
-	if(this.animateOpacity !== null){
-		var diff = this.animateOpacity - this.node.alpha;
-		this.node.alpha+= diff * percent;
-	}
+	if(this.options.width) this.node.width = this.originalWidth + ((this.options.width - this.originalWidth) * percent);
+	if(this.options.height) this.node.height = this.originalHeight + ((this.options.height - this.originalHeight) * percent);
+	if(this.options.scale) this.node.scale = this.originalScale + ((this.options.scale - this.originalScale) * percent);
+	if(this.options.opacity) this.node.alpha = this.originalAlpha + ((this.options.opacity - this.originalAlpha) * percent);
 };
 
 FF.Animation.prototype.start = function(){
