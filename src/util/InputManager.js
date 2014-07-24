@@ -577,7 +577,7 @@ FF.InputManager.checkGamepadButtons = function(){
 	FF.InputManager.gamepad_axis_values.left.x = current.axes[0];
 	FF.InputManager.gamepad_axis_values.left.y = current.axes[1];
 	FF.InputManager.gamepad_axis_values.right.x = current.axes[2];
-	FF.InputManager.gamepad_axis_values.right.y = current_axes[3];
+	FF.InputManager.gamepad_axis_values.right.y = current.axes[3];
 	FF.InputManager.gamepad_axis_values.triggers.left = current.buttons[6].value;
 	FF.InputManager.gamepad_axis_values.triggers.right = current.buttons[7].value;
 };
