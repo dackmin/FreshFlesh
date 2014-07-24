@@ -5,7 +5,7 @@
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-/* Last merge : Jeu 24 jul 2014 19:21:07 CEST  */
+/* Last merge : Jeu 24 jul 2014 20:30:06 CEST  */
 
 /* Merging order :
 
@@ -4923,7 +4923,7 @@ FF.InputManager.checkGamepadButtons = function(){
 
 	//Axis values
 	FF.InputManager.gamepad_axis_values.left.x = current.axes[0];
-	FF.inputManager.gamepad_axis_values.left.y = current.axes[1];
+	FF.InputManager.gamepad_axis_values.left.y = current.axes[1];
 	FF.InputManager.gamepad_axis_values.right.x = current.axes[2];
 	FF.InputManager.gamepad_axis_values.right.y = current_axes[3];
 	FF.InputManager.gamepad_axis_values.triggers.left = current.buttons[6].value;
