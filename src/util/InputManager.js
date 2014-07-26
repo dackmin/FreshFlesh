@@ -565,6 +565,8 @@ FF.InputManager.getGamepads = function(){
 FF.InputManager.checkGamepadButtons = function(){
 	var current = FF.InputManager.getCurrentConnectedGamepad();
 
+	if(!current) return;
+
 	//Buttons
 	for(var i in current.buttons)
 		FF.InputManager.pressed_keys[FF.InputManager.gamepad_to_string.buttons[i]] = current.buttons[i].pressed || current.buttons[i].value > ((i === 6 || i === 7) ? FF.InputManager.gamepad_deadzones.bottom_triggers : 0.5);
