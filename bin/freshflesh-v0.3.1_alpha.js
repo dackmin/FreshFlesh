@@ -5,7 +5,7 @@
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-/* Last merge : Sam 26 jul 2014 14:41:38 CEST  */
+/* Last merge : Sam 26 jul 2014 21:33:41 CEST  */
 
 /* Merging order :
 
@@ -4248,6 +4248,7 @@ FF.Game.prototype.switchGameState = function(gamestate, reset){
 	this.currentGameState = (reset) ? new gamestate.constructor : gamestate;
 
 	//if(this.currentGameState.isStarted === undefined) throw new Error("[FF.Game.switchGameState] Your GameState have to contain an isStarted public property");
+	if(this.currentGameState.isStarted === undefined) this.currentGameState.isStarted = false;
 	if(this.currentGameState.setup === undefined) throw new Error("[FF.Game.switchGameState] Your GameState have to contain a setup() function");
 
 	if(this.currentGameState.isStarted == false){
