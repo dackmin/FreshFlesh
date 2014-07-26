@@ -5,7 +5,7 @@
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-/* Last merge : Sam 26 jul 2014 22:01:36 CEST  */
+/* Last merge : Sam 26 jul 2014 23:18:36 CEST  */
 
 /* Merging order :
 
@@ -1411,6 +1411,19 @@ FF.Sprite.prototype.draw = function(){
 
 	FF.Render.drawImage(this.image,this.x,this.y,this.originalWidth * this.scale, this.originalHeight * this.scale);
 	FF.Render.restore();
+};
+
+FF.Sprite.prototype.drawSomewhere = function(x,y){
+	var old_x = this.rect().x;
+	var old_y = this.rect().y;
+
+	this.x = x;
+	this.y = y;
+
+	this.draw();
+
+	this.x = old_x;
+	this.y = old_y;
 };
 
 FF.Sprite.prototype.switchImage = function(url){
@@ -3970,11 +3983,15 @@ FF.Util.random = function(from, to){
  * Associative array helpers
  */
 FF.Util.array_first = function(arr) {
-for(var i in arr) return arr[i];
+	for(var i in arr) return arr[i];
 };
 
-FF.Util.array_first_key = function(){
-for(var i in arr) return i;
+FF.Util.array_first_key = function(arr){
+	for(var i in arr) return i;
+};
+
+FF.Util.array_random = function(arr){
+	return arr[Math.floor(Math.random()*arr.length)];
 };
 
 
