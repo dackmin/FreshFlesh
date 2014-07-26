@@ -1622,9 +1622,13 @@ FF.Util.random = function(from, to){
  * Associative array helpers
  */
 FF.Util.array_first = function(arr) {
-for(var i in arr) return arr[i];
+	for(var i in arr) return arr[i];
 };
 
-FF.Util.array_first_key = function(){
-for(var i in arr) return i;
+FF.Util.array_first_key = function(arr){
+	for(var i in arr) return i;
+};
+
+FF.Util.array_random = function(arr){
+	return arr[Math.floor(Math.random()*arr.length)];
 };
