@@ -553,6 +553,9 @@ FF.InputManager.getGamepads = function(){
 		FF.InputManager.gamepads = navigator.getGamepads();
 		FF.InputManager.checkGamepadButtons();
 	}
+	else{
+		console.log("[FF.InputManager] This browser doesn't seem to support Gamepads");
+	}
 
 };
 
@@ -570,6 +573,7 @@ FF.InputManager.checkGamepadButtons = function(){
 	//Buttons
 	for(var i in current.buttons)
 		FF.InputManager.pressed_keys[FF.InputManager.gamepad_to_string.buttons[i]] = current.buttons[i].pressed || current.buttons[i].value > ((i === 6 || i === 7) ? FF.InputManager.gamepad_deadzones.bottom_triggers : 0.5);
+
 
 	//Axis
 	for(var i in current.axes)
@@ -593,6 +597,6 @@ FF.InputManager.checkGamepadButtons = function(){
  */
 FF.InputManager.getCurrentConnectedGamepad = function(){
 	for(var i in FF.InputManager.gamepads)
-		if(FF.InputManager.gamepads[i].connected)
+		if(FF.InputManager.gamepads[i] && FF.InputManager.gamepads[i].connected)
 			return FF.InputManager.gamepads[i];
 };
