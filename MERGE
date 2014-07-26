@@ -26,6 +26,7 @@ src/audio/Sound.js
 
 # Util
 src/util/Util.js
+src/util/SpriteAnimation.js
 src/util/Animation.js
 src/util/EventManager.js
 src/util/Game.js
