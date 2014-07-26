@@ -1,8 +1,8 @@
 FreshFlesh
 ==========
 
-[![release](http://img.shields.io/badge/current%20release-Tortuga%20(v0.3.1__alpha)-green.svg?style=flat)](https://github.com/dackmin/FreshFlesh/releases/tag/v0.3_alpha)
-[![download](http://img.shields.io/badge/download%20latest%20minified%20js-68.9KB-blue.svg?style=flat)](https://github.com/dackmin/FreshFlesh/releases/download/v0.3_alpha/freshflesh-v0.3.1_alpha.min.js)
+[![release](http://img.shields.io/badge/current%20release-Tortuga%20(v0.3.2__alpha)-green.svg?style=flat)](https://github.com/dackmin/FreshFlesh/releases/tag/v0.3_alpha)
+[![download](http://img.shields.io/badge/download%20latest%20minified%20js-70KB-blue.svg?style=flat)](https://github.com/dackmin/FreshFlesh/releases/download/v0.3_alpha/freshflesh-v0.3.2_alpha.min.js)
 
 
 Fresh Flesh is a fast/lightweight Javascript WebGL/Canvas game engine based on [WebGL-2D](https://github.com/gameclosure/webgl-2d) library (for WebGL render) and Canvas API. It allows you to create simple games in minutes by providing useful built-in game functions (for RPGs, TPS, ...).
