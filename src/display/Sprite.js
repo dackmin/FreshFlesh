@@ -170,6 +170,19 @@ FF.Sprite.prototype.draw = function(){
 	FF.Render.restore();
 };
 
+FF.Sprite.prototype.drawSomewhere = function(x,y){
+	var old_x = this.rect().x;
+	var old_y = this.rect().y;
+
+	this.x = x;
+	this.y = y;
+
+	this.draw();
+
+	this.x = old_x;
+	this.y = old_y;
+};
+
 FF.Sprite.prototype.switchImage = function(url){
 	if(!url) throw new Error("[FF.Sprite] You have to provide the image path of your sprite");
 	if(FF.TextureCache[url] === undefined) throw new Error("[FF.Sprite] You are using a non-loaded asset");
