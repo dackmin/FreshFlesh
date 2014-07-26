@@ -1,4 +1,4 @@
-VERSION = v0.3.1_alpha
+VERSION = v0.3.2_alpha
 MERGE = ./MERGE
 COMPILED = ./bin/freshflesh-$(VERSION).js
 MINIFIED = ./bin/freshflesh-$(VERSION).min.js
