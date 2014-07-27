@@ -600,3 +600,11 @@ FF.InputManager.getCurrentConnectedGamepad = function(){
 		if(FF.InputManager.gamepads[i] && FF.InputManager.gamepads[i].connected)
 			return FF.InputManager.gamepads[i];
 };
+
+
+FF.InputManager.isAGamepadConnected = function(){
+	for(var i in FF.InputManager.gamepads)
+		if(FF.InputManager.gamepads[i] !== undefined && FF.InputManager.gamepads[i].connected == true)
+			return true;
+	return false;
+};
