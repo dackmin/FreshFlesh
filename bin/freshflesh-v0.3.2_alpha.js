@@ -5,7 +5,7 @@
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-/* Last merge : Sam 26 jul 2014 23:18:36 CEST  */
+/* Last merge : Dim 27 jul 2014 15:11:43 CEST  */
 
 /* Merging order :
 
@@ -5082,6 +5082,14 @@ FF.InputManager.getCurrentConnectedGamepad = function(){
 	for(var i in FF.InputManager.gamepads)
 		if(FF.InputManager.gamepads[i] && FF.InputManager.gamepads[i].connected)
 			return FF.InputManager.gamepads[i];
+};
+
+
+FF.InputManager.isAGamepadConnected = function(){
+	for(var i in FF.InputManager.gamepads)
+		if(FF.InputManager.gamepads[i] !== undefined && FF.InputManager.gamepads[i].connected == true)
+			return true;
+	return false;
 };
 
 
