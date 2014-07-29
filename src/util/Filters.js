@@ -13,15 +13,12 @@ FF.Filter.applyFilter = function(filter, options){
 
 FF.Filter.GrayScale = function(){
   var pixels = FF.Filter.getImageData();
-  var d = pixels.data;
 
-  for (var i=0; i<d.length; i+=4) {
-	var r = d[i], g = d[i+1], b = d[i+2];
-	var v = 0.2126*r + 0.7152*g + 0.0722*b;
-	d[i] = d[i+1] = d[i+2] = v;
+  for (var i=0; i<pixels.data.length; i+=4) {
+	var r = pixels.data[i], g = pixels.data[i+1], b = pixels.data[i+2], v = 0.2126*r + 0.7152*g + 0.0722*b;
+	pixels.data[i] = pixels.data[i+1] = pixels.data[i+2] = v;
   }
 
-  pixels.data = d;
   return pixels;
 };
 
@@ -29,15 +26,13 @@ FF.Filter.GrayScale = function(){
 FF.Filter.Brightness = function(options){
 	var value = (options && options.brightness) || 0;
 	var pixels = FF.Filter.getImageData();
-	var d = pixels.data;
 
-	for (var i=0; i<d.length; i+=4) {
-		d[i] += value;
-		d[i+1] += value;
-		d[i+2] += value;
+	for (var i=0; i<pixels.data.length; i+=4) {
+		pixels.data[i] += value;
+		pixels.data[i+1] += value;
+		pixels.data[i+2] += value;
 	}
 
-	pixels.data = d;
 	return pixels;
 };
 
@@ -45,15 +40,13 @@ FF.Filter.Brightness = function(options){
 FF.Filter.Threshold = function(options){
 	var value = (options && options.threshold) || 127;
 	var pixels = FF.Filter.getImageData();
-	var d = pixels.data;
 
-	for (var i=0; i<d.length; i+=4) {
-		var r = d[i], g = d[i+1], b = d[i+2];
+	for (var i=0; i<pixels.data.length; i+=4) {
+		var r = pixels.data[i], g = pixels.data[i+1], b = pixels.data[i+2];
 		var v = (0.2126*r + 0.7152*g + 0.0722*b >= value) ? 255 : 0;
-		d[i] = d[i+1] = d[i+2] = v;
+		pixels.data[i] = pixels.data[i+1] = pixels.data[i+2] = v;
 	}
 
-	pixels.data = d;
 	return pixels;
 };
 
