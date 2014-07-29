@@ -28,6 +28,7 @@ src/audio/Sound.js
 src/util/Util.js
 src/util/SpriteAnimation.js
 src/util/Animation.js
+src/util/Filters.js
 src/util/EventManager.js
 src/util/Game.js
 src/util/GameState.js
