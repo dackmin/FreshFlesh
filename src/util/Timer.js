@@ -32,7 +32,7 @@ FF.Timer.prototype.update = function(){
 
 	if(new Date() - this.lastTick >= this.interval){
 		this.time+= this.interval;
-		this.dispatchEvent({ type : "tick", remaining : that.timeout - that.time, completion : parseFloat(that.time / that.timeout) });
+		this.dispatchEvent({ type : "tick", current : that.time, remaining : that.timeout - that.time, completion : parseFloat(that.time / that.timeout) });
 		this.lastTick = new Date();
 	}
 };
