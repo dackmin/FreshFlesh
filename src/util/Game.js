@@ -70,7 +70,7 @@ FF.Game = function(gamestate, options){
 		if(this.currentGameState.setup === undefined) throw new Error("[FF.Game.Start] Your GameState have to contain a setup() function");
 
 		if(FF.Render.canvas === undefined){
-			FF.Render = FF.Util.createRender(options.view);
+			FF.Render = FF.Util.createRender(options);
 		}
 
 		if(FF.InputManager.isSetup == false){
