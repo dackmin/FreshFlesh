@@ -25,6 +25,7 @@ src/audio/Music.js
 src/audio/Sound.js
 
 # Util
+src/util/Vendor.js
 src/util/Util.js
 src/util/ArrayList.js
 src/util/SpriteAnimation.js
