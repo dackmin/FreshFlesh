@@ -5,7 +5,7 @@
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-/* Last merge : Mar 5 aoû 2014 16:17:22 CEST  */
+/* Last merge : Mer 6 aoû 2014 10:52:00 CEST  */
 
 /* Merging order :
 
@@ -4257,17 +4257,21 @@ FF.Animation = function(item, duration, options){
 
 	this.node = item;
 	this.duration = duration;
+	this.stoped = false;
 
 	this.timer = new FF.Timer({ timeout : duration, interval : options.step || 10, autostart : options.autostart || false  });
 	this.timer.addEventListener("start", function(e){ that.resetValues(); that.dispatchEvent({ type : "start" }); });
 	this.timer.addEventListener("tick", function(e){ that.animate(e); that.dispatchEvent({ type : "step" }); });
 	this.timer.addEventListener("timeout", function(){ that.dispatchEvent({ type : "end" }); });
+	this.timer.addEventListener("stop", function(){ that.dispatchEvent({ type : "stop" }); });
 
 	this.options = options;
 };
 
 
 FF.Animation.prototype.update = function(){
+	if(this.stoped) return;
+
 	this.timer.update();
 };
 
@@ -4419,7 +4423,13 @@ FF.Animation.prototype.ease = function(t, b, c, d, ease){
 };
 
 FF.Animation.prototype.start = function(){
+	this.stoped = false;
 	this.timer.restart();
+};
+
+FF.Animation.prototype.stop = function(){
+	this.stoped = true;
+	this.timer.stop();
 };
 
 FF.Animation.prototype.resetValues = function(){
@@ -5591,6 +5601,12 @@ FF.Timer.prototype.reset = function(){
 
 	if(this.autostart){ this.restart(); }
 	else this.active = false;
+};
+
+FF.Timer.prototype.stop = function(){
+	this.time = 0;
+	this.lastTick = new Date();
+	this.dispatchEvent({ type : "stop" });
 };
 
 FF.Timer.prototype.restart = function(){

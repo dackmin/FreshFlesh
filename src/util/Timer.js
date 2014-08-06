@@ -46,6 +46,12 @@ FF.Timer.prototype.reset = function(){
 	else this.active = false;
 };
 
+FF.Timer.prototype.stop = function(){
+	this.time = 0;
+	this.lastTick = new Date();
+	this.dispatchEvent({ type : "stop" });
+};
+
 FF.Timer.prototype.restart = function(){
 	var that = this;
 
