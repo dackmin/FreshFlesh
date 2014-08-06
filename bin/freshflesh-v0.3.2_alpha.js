@@ -5,7 +5,7 @@
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-/* Last merge : Mer 6 aoû 2014 16:43:56 CEST  */
+/* Last merge : Mer 6 aoû 2014 16:56:59 CEST  */
 
 /* Merging order :
 
@@ -42,6 +42,7 @@
 - src/util/GameState.js
 - src/util/InputManager.js
 - src/util/Shooter.js
+- src/util/Trigger.js
 - src/util/Timer.js
 - src/util/Viewport.js
 - src/util/WebSocketServer.js
@@ -5547,6 +5548,47 @@ FF.Shooter.toDegrees = function(_rad){
 
 FF.Shooter.distanceBetween = function(_object1, _object2) {
 	return Math.sqrt(Math.pow(_object1.x - _object2.x, 2) + Math.pow(_object1.y - _object2.y, 2));
+};
+
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* Merging js: src/util/Trigger.js begins */
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+/**
+ * TODO
+ */
+FF.Trigger = function(collider, options){
+	FF.EventManager.call(this);
+
+	this.collider = collider;
+
+	this.x = options.x || 0;
+	this.y = options.y || 0;
+	this.width = options.width || 10;
+	this.height = options.height || 10;
+
+	this.triggered = false;
+};
+
+
+FF.Trigger.prototype.rect = function(){
+	return {
+		x : this.x,
+		y : this.y,
+		width : this.width,
+		height : this.height
+	};
+}
+
+FF.Trigger.prototype.update = function(){
+	if(FF.Util.collideOneWithOne(this.collider, this)){
+		if(!this.triggered) this.dispatchEvent({ type : "triggered" });
+		this.triggered = true;
+	}
+	else
+		this.triggered = false;
 };
 
 

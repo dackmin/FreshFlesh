@@ -36,6 +36,7 @@ src/util/Game.js
 src/util/GameState.js
 src/util/InputManager.js
 src/util/Shooter.js
+src/util/Trigger.js
 src/util/Timer.js
 src/util/Viewport.js
 src/util/WebSocketServer.js
