@@ -37,15 +37,15 @@ FF.BitmapFontLoader.prototype.fromFNT = function(){
 	FF.Util.ajax({ type : "POST", url : this.url, complete : function(content){
 		var doc = FF.Util.getDOMDocument(content);
 
-		var textureUrl = doc.getElementsByTagName("page")[0].attributes.getNamedItem("file").nodeValue;
+		var textureUrl = doc.getElementsByTagName("page")[0].attributes.getNamedItem("file").value;
 
 		var data = {};
 		var info = doc.getElementsByTagName("info")[0];
 		var common = doc.getElementsByTagName("common")[0];
 
-		data.font = info.attributes.getNamedItem("face").nodeValue;
-		data.size = parseInt(info.attributes.getNamedItem("size").nodeValue, 10);
-		data.lineHeight = parseInt(common.attributes.getNamedItem("lineHeight").nodeValue, 10);
+		data.font = info.attributes.getNamedItem("face").value;
+		data.size = parseInt(info.attributes.getNamedItem("size").value, 10);
+		data.lineHeight = parseInt(common.attributes.getNamedItem("lineHeight").value, 10);
 		data.chars = {};
 		data.texture = textureUrl;
 
@@ -53,19 +53,19 @@ FF.BitmapFontLoader.prototype.fromFNT = function(){
 		var letters = doc.getElementsByTagName("char");
 
 		for (var i = 0; i < letters.length; i++){
-			var charCode = parseInt(letters[i].attributes.getNamedItem("id").nodeValue, 10);
+			var charCode = parseInt(letters[i].attributes.getNamedItem("id").value, 10);
 
 			var textureRect = {
-				x: parseInt(letters[i].attributes.getNamedItem("x").nodeValue, 10),
-				y: parseInt(letters[i].attributes.getNamedItem("y").nodeValue, 10),
-				width: parseInt(letters[i].attributes.getNamedItem("width").nodeValue, 10),
-				height: parseInt(letters[i].attributes.getNamedItem("height").nodeValue, 10)
+				x: parseInt(letters[i].attributes.getNamedItem("x").value, 10),
+				y: parseInt(letters[i].attributes.getNamedItem("y").value, 10),
+				width: parseInt(letters[i].attributes.getNamedItem("width").value, 10),
+				height: parseInt(letters[i].attributes.getNamedItem("height").value, 10)
 			};
 
 			data.chars[charCode] = {
-					xOffset: parseInt(letters[i].attributes.getNamedItem("xoffset").nodeValue, 10),
-					yOffset: parseInt(letters[i].attributes.getNamedItem("yoffset").nodeValue, 10),
-					xAdvance: parseInt(letters[i].attributes.getNamedItem("xadvance").nodeValue, 10),
+					xOffset: parseInt(letters[i].attributes.getNamedItem("xoffset").value, 10),
+					yOffset: parseInt(letters[i].attributes.getNamedItem("yoffset").value, 10),
+					xAdvance: parseInt(letters[i].attributes.getNamedItem("xadvance").value, 10),
 					kerning: {},
 					textureRect : textureRect
 			};
@@ -74,9 +74,9 @@ FF.BitmapFontLoader.prototype.fromFNT = function(){
 		//parse kernings
 		var kernings = doc.getElementsByTagName("kerning");
 		for (i = 0; i < kernings.length; i++){
-		   var first = parseInt(kernings[i].attributes.getNamedItem("first").nodeValue, 10);
-		   var second = parseInt(kernings[i].attributes.getNamedItem("second").nodeValue, 10);
-		   var amount = parseInt(kernings[i].attributes.getNamedItem("amount").nodeValue, 10);
+		   var first = parseInt(kernings[i].attributes.getNamedItem("first").value, 10);
+		   var second = parseInt(kernings[i].attributes.getNamedItem("second").value, 10);
+		   var amount = parseInt(kernings[i].attributes.getNamedItem("amount").value, 10);
 
 			data.chars[second].kerning[first] = amount;
 
