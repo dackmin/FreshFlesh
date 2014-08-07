@@ -9,11 +9,13 @@ FF.Sound = function(options){
 	this.player.loop = options.loop || false;
 	this.player.autoplay = options.autoplay || false;
 	this.player.volume = options.volume / 100 || 1;
+	console.log(this.player);
 };
 
 
 FF.Sound.prototype.play = function(){
 	var sound = this.player.cloneNode();
+	sound.volume = this.player.volume;
 	sound.ontimeupdate = function(){
 		if(this.currentTime >= this.duration) delete sound;
 	};
