@@ -9,7 +9,6 @@ FF.Sound = function(options){
 	this.player.loop = options.loop || false;
 	this.player.autoplay = options.autoplay || false;
 	this.player.volume = options.volume / 100 || 1;
-	console.log(this.player);
 };
 
 

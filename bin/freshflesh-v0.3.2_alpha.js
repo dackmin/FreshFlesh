@@ -5,7 +5,7 @@
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-/* Last merge : Jeu 7 aoû 2014 09:49:24 CEST  */
+/* Last merge : Jeu 7 aoû 2014 10:27:49 CEST  */
 
 /* Merging order :
 
@@ -2313,7 +2313,6 @@ FF.Sound = function(options){
 	this.player.loop = options.loop || false;
 	this.player.autoplay = options.autoplay || false;
 	this.player.volume = options.volume / 100 || 1;
-	console.log(this.player);
 };
 
 
