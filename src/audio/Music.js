@@ -30,14 +30,14 @@ FF.Music.prototype.moveTo = function(seconds){
 
 
 FF.Music.prototype.forward = function(seconds){
-	if(this.player.currentTime + seconds > duration) return;
+	if(this.player.currentTime + seconds > this.player.duration) return;
 
 	this.player.currentTime+= seconds;
 };
 
 
 FF.Music.prototype.backward = function(seconds){
-	if(this.player.currentTime - seconds < duration) return;
+	if(this.player.currentTime - seconds < this.player.duration) return;
 
 	this.player.currentTime-= seconds;
 };

@@ -16,7 +16,7 @@ FF.Sound.prototype.play = function(){
 	var sound = this.player.cloneNode();
 	sound.volume = this.player.volume;
 	sound.ontimeupdate = function(){
-		if(this.currentTime >= this.duration) delete sound;
+		if(this.currentTime >= this.player.duration) delete sound;
 	};
 	sound.play();
 };
@@ -35,14 +35,14 @@ FF.Sound.prototype.moveTo = function(seconds){
 
 
 FF.Sound.prototype.forward = function(seconds){
-	if(this.player.currentTime + seconds > duration) return;
+	if(this.player.currentTime + seconds > this.player.duration) return;
 
 	this.player.currentTime+= seconds;
 };
 
 
 FF.Sound.prototype.backward = function(seconds){
-	if(this.player.currentTime - seconds < duration) return;
+	if(this.player.currentTime - seconds < this.player.duration) return;
 
 	this.player.currentTime-= seconds;
 };
