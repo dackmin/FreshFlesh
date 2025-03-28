@@ -807,7 +807,7 @@ FF.BitmapFontLoader.prototype.load = function(){
 FF.BitmapFontLoader.prototype.fromFNT = function(){
 	var that = this;
 
-	FF.Util.ajax({ type : "POST", url : this.url, complete : function(content){
+	FF.Util.ajax({ type : "GET", url : this.url, complete : function(content){
 		var doc = FF.Util.getDOMDocument(content);
 
 		var textureUrl = doc.getElementsByTagName("page")[0].attributes.getNamedItem("file").value;
