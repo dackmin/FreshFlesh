@@ -43,7 +43,7 @@ FF.TMXLoader.prototype.fromJSON = function(){
 FF.TMXLoader.prototype.fromTMX = function(){
 	var that = this;
 
-	FF.Util.ajax({ type : "POST", url : this.mapUrl, complete : function(content){
+	FF.Util.ajax({ type : "GET", url : this.mapUrl, complete : function(content){
 		var doc = FF.Util.getDOMDocument(content);
 
 		var m = {
